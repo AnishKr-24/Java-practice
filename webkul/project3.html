@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List Project</title>
+  <!-- <style>
+   
+
+    .todo-box {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 75%;
+      padding: 6px;
+    }
+
+    button {
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      background: #eee;
+      padding: 5px;
+    }
+  </style> -->
+</head>
+
+<body>
+  <div class="todo-box">
+    <h2>Todo List</h2>
+    <input type="text" id="task">
+    <button onclick="addTask()">Add</button>
+    <ul id="list"></ul>
+  </div>
+  <script>
+    function addTask() {
+      let task = document.getElementById("task").value.trim();
+
+      if (task === "") {
+        alert("Please enter a task");
+        return;
+      }
+
+      let li = document.createElement("li");
+      li.innerHTML = `
+      <span>${task}</span>
+      <button onclick="removeTask(this)">X</button>
+    `;
+
+      document.getElementById("list").appendChild(li);
+      document.getElementById("task").value = "";
+    }
+
+    function removeTask(btn) {
+      btn.parentElement.remove();
+    }
+  </script>
+
+</body>
+
+</html>
